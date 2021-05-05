@@ -1,0 +1,89 @@
+{
+  "name": "ts-app",
+  "version": "0.1.0",
+  "description": "A typescript template.",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "sideEffects": false,
+  "files": [
+    "src",
+    "dist"
+  ],
+  "scripts": {
+    "test": "jest",
+    "build": "tsc -p src/tsconfig.json && tsc-alias -p src/tsconfig.json",
+    "start": "DEBUG=* node dist/index.js",
+    "lint": "eslint './src/**/*.ts' './src/**/*.ts'"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sawyerhopkins/ts-app.git"
+  },
+  "keywords": [
+    "nodejs"
+  ],
+  "author": "Sawyer Hopkins <sawyer@sawyerhopkins.com> (http://sawyerhopkins.com)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/sawyerhopkins/ts-app/issues"
+  },
+  "homepage": "https://github.com/sawyerhopkins/ts-app#readme",
+  "dependencies": {
+    "debug": "^4.3.1",
+    "dotenv": "^8.2.0"
+  },
+  "devDependencies": {
+    "@fluffy-spoon/substitute": "^1.202.0",
+    "@nuxtjs/eslint-config-typescript": "^6.0.0",
+    "@types/debug": "^4.1.5",
+    "@types/jest": "^26.0.22",
+    "@types/node": "^14.14.39",
+    "eslint": "^7.24.0",
+    "jest": "^26.6.3",
+    "jest-extended": "^0.11.5",
+    "ts-jest": "^26.5.4",
+    "tsc-alias": "^1.2.10",
+    "typescript": "^4.2.4"
+  },
+  "jest": {
+    "verbose": true,
+    "collectCoverage": true,
+    "setupFilesAfterEnv": [
+      "jest-extended"
+    ],
+    "reporters": [
+      "default"
+    ],
+    "coverageReporters": [
+      "json",
+      "lcov",
+      "text-summary",
+      "clover"
+    ],
+    "coveragePathIgnorePatterns": [
+      "/contracts/"
+    ],
+    "coverageDirectory": "<rootDir>/.coverage",
+    "collectCoverageFrom": [
+      "<rootDir>/src/**/*.{js,ts,jsx,tsx}"
+    ],
+    "testMatch": [
+      "<rootDir>/test/**/*.test.{js,ts}"
+    ],
+    "transform": {
+      "^.+\\.(j|t)sx?$": "ts-jest"
+    },
+    "globals": {
+      "ts-jest": {
+        "tsconfig": "test/tsconfig.json"
+      }
+    },
+    "moduleNameMapper": {
+      "~/(.*)": "<rootDir>/src/$1",
+      "~/clients/(.*)": "<rootDir>/src/clients/$1",
+      "~/contracts/(.*)": "<rootDir>/src/contracts/$1",
+      "~/factories/(.*)": "<rootDir>/src/factories/$1",
+      "~/services/(.*)": "<rootDir>/src/services/$1"
+    }
+  }
+}
