@@ -5,7 +5,7 @@
   ],
   "parserOptions": {
     "project": "./tsconfig.json",
-    "tsconfigRootDir": "./src"
+    "tsconfigRootDir": "./test"
   },
   "rules": {
     // https://github.com/Chatie/eslint-config/issues/45
